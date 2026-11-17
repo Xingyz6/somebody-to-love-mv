@@ -411,9 +411,11 @@ html, body {
   .lyric { left: 22px; right: 22px; bottom: 13vh; max-width: none; }
   .anno {
     position: absolute;
-    left: 22px; right: 22px; bottom: 6vh;
+    left: 22px; right: 22px;
+    top: 64px; bottom: auto;
     width: auto;
     max-width: none;
+    max-height: 26vh;
   }
   .anno p { font-size: 11px; line-height: 1.8; }
   .transport { padding: 0 16px; gap: 12px; }

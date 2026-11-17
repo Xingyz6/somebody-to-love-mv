@@ -56,12 +56,13 @@
       let s = 0;
       for (let i = 0; i < 48; i++) s += freqData[i];
       level = s / (48 * 255);
-      if (audio.paused) {
-        // 暂停时给一个静息包络，画面不至于全黑
+      if (audio.paused || level < 0.02) {
+        // 暂停中，或 Safari 没把数据交给 WebAudio：用确定性包络兜底
+        const tt = audio.currentTime || t;
         for (let i = 0; i < 64; i++) {
-          freqData[i] = 26 + 74 * Math.abs(Math.sin(t * 1.3 + i * 0.3)) * (1 - i / 90);
+          freqData[i] = 26 + 74 * Math.abs(Math.sin(tt * 1.3 + i * 0.3)) * (1 - i / 90);
         }
-        level = 0.26;
+        level = audio.paused ? 0.26 : 0.32;
       }
       return { level: level, freq: freqData };
     }
