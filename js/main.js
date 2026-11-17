@@ -32,7 +32,10 @@
 
   /* ---------- 音频 ---------- */
   let ac = null, analyser = null, freqData = new Uint8Array(64), level = 0;
-  let useAnalyser = location.protocol !== 'file:';
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  // iOS Safari 对 MediaElementSource 有静音风险：手机上不走 WebAudio，用确定性包络
+  let useAnalyser = location.protocol !== 'file:' && !isIOS;
 
   function initAudio() {
     if (!useAnalyser || ac) return;
