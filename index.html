@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Somebody to Love — Queen, 1976</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="stage">
+  <canvas id="cv"></canvas>
+  <div class="veil"></div>
+
+  <!-- 顶部 -->
+  <header class="hud">
+    <div class="hud-l">
+      <span class="dot"></span>
+      <span id="secLabel">I. 呼求</span>
+    </div>
+    <div class="hud-r">
+      <span class="meta">QUEEN — A DAY AT THE RACES</span>
+      <span class="meta dim">A♭ MAJOR · 1976</span>
+    </div>
+  </header>
+
+  <!-- 歌名（开场） -->
+  <div id="titleCard" class="titlecard">
+    <div class="tc-top">QUEEN · 1976</div>
+    <h1>SOMEBODY<br>TO LOVE</h1>
+    <div class="tc-bot">一首关于信仰崩塌的歌，被误听成情歌四十年</div>
+  </div>
+
+  <!-- 歌词 -->
+  <div id="lyric" class="lyric">
+    <div id="lyricGhost" class="en ghost" aria-hidden="true"></div>
+    <div id="lyricEn" class="en"></div>
+    <div id="lyricZh" class="zh"></div>
+  </div>
+
+  <!-- 批注 -->
+  <div id="anno" class="anno">
+    <div class="anno-line"></div>
+    <p id="annoText"></p>
+  </div>
+
+  <!-- 播放器 -->
+  <div id="transport" class="transport">
+    <button id="btnPlay" class="iconbtn" aria-label="播放">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    </button>
+    <div id="seek" class="seek">
+      <div id="seekFill" class="seek-fill"></div>
+      <div id="seekHead" class="seek-head"></div>
+    </div>
+    <div id="clock" class="clock">0:00 / 4:57</div>
+    <button id="btnAnno" class="textbtn" aria-label="批注">批注</button>
+    <button id="btnEssay" class="textbtn" aria-label="解析">解析</button>
+    <button id="btnFs" class="iconbtn" aria-label="全屏">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+  </div>
+
+  <!-- 启动层 -->
+  <div id="gate" class="gate">
+    <div class="gate-inner">
+      <div class="gate-kicker">QUEEN · 1976 · 4:57</div>
+      <h1>SOMEBODY TO LOVE</h1>
+      <p class="gate-sub">逐句拆解一首被误听了四十年的歌</p>
+      <button id="btnStart" class="startbtn"><span>开始播放</span></button>
+      <div class="gate-foot">耳机 · 全屏</div>
+    </div>
+  </div>
+
+  <!-- 解析 -->
+  <aside id="essay" class="essay">
+    <div class="essay-head">
+      <div>
+        <div class="essay-kicker">LINER NOTES</div>
+        <h2>歌词解析</h2>
+      </div>
+      <button id="btnEssayClose" class="iconbtn" aria-label="关闭">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </div>
+    <article id="essayBody" class="essay-body"></article>
+    <div class="essay-foot">Whisper 逐句时间轴 · 事实来源：Queen 官方访谈 / Wikipedia</div>
+  </aside>
+</div>
+
+<audio id="audio" src="audio/song.mp3" preload="auto"></audio>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
